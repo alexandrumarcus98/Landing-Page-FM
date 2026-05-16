@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@import "../app/style/variables/colors";
+@import "../app/style/variables/fonts";
+@import "../app/style/variables/spacing";
+
+@import "../app/style/shared/mixins";
+@import "../app/style/shared/reset";
+@import "../app/style/shared/base";
+
+@import "../app/style/utilities/container";
+@import "../app/style/utilities/buttons";
+
+@import "../app/style/components/header";
+@import "../app/style/components/hero";
