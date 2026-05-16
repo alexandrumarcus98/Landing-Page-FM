@@ -1,0 +1,87 @@
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin absolute-fill {
+	position: absolute;
+	inset: 0;
+}
+
+@mixin mono-text($size: 0.875rem, $line-height: 1.4, $weight: 400, $transform: uppercase) {
+	font-family: var(--font-body), monospace;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+	text-transform: $transform;
+}
+
+@mixin heading-text($size, $line-height: 1, $weight: 700, $transform: uppercase) {
+	font-family: var(--font-heading), sans-serif;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+	text-transform: $transform;
+}
+
+@mixin accent-text($size, $line-height: 1, $weight: 400, $transform: uppercase) {
+	font-family: var(--font-accent-text), sans-serif;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+	text-transform: $transform;
+}
+
+@mixin section-container($max-width) {
+	width: min(100% - 64px, $max-width);
+	margin-inline: auto;
+}
+
+@mixin button-base($width: 203px, $height: 52px, $padding-y: 20px, $padding-x: 40px) {
+	@apply inline-flex items-center justify-center;
+	width: $width;
+	height: $height;
+	padding: $padding-y $padding-x;
+	border: 0.125rem solid var(--color-accent-border);
+	background: var(--color-accent);
+	color: var(--color-white);
+	font-family: var(--font-body), monospace;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 100%;
+	letter-spacing: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+@mixin section-title($size: 3.5rem, $line-height: 0.98, $max-width: 860px) {
+	margin: 0 auto;
+	max-width: $max-width;
+	text-align: center;
+	@include heading-text($size, $line-height, 700, uppercase);
+}
+
+@mixin body-copy($size: 0.875rem, $line-height: 1.55, $max-width: 760px) {
+	max-width: $max-width;
+	margin-inline: auto;
+	font-family: var(--font-body), monospace;
+	font-size: $size;
+	font-weight: 400;
+	line-height: $line-height;
+}
+
+@mixin feature-grid($text-first: true) {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-14);
+	align-items: center;
+
+	@if $text-first == false {
+		direction: rtl;
+
+		> * {
+			direction: ltr;
+		}
+	}
+}

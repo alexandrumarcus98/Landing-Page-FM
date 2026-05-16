@@ -1,0 +1,19 @@
+.container {
+	width: min(100% - 64px, var(--container-width));
+	margin-inline: auto;
+}
+
+.containerNarrow {
+	width: min(100% - 64px, var(--container-narrow));
+	margin-inline: auto;
+}
+
+.containerFeature {
+	width: min(100% - 64px, var(--container-feature));
+	margin-inline: auto;
+}
+
+.containerText {
+	width: min(100% - 64px, var(--container-text));
+	margin-inline: auto;
+}

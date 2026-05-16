@@ -1,0 +1,19 @@
+.display-heading {
+	font-family: var(--font-display), sans-serif;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+
+.mono-text {
+	font-family: var(--font-mono), monospace;
+	font-weight: 400;
+}
+
+.accent-text {
+	font-family: var(--font-accent), sans-serif;
+	font-weight: 400;
+	line-height: 1;
+	text-transform: uppercase;
+}
