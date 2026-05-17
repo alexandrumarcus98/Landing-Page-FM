@@ -24,19 +24,19 @@ const CtaFeature = ({
 }: CtaFeatureProps) => {
 	return (
 		<article className={`cta-feature ${imageLeft ? "imageLeft" : ""}`}>
-			<div className="text column">
-				<h3 className="itemTitle">{title}</h3>
+			<div className="text">
+				<h3 className="title">{title}</h3>
 
 				{date ? <p className="date">{date}</p> : null}
 
 				<p className="description">{description}</p>
 
-				<Link href={href} className="buttonPrimary itemButton">
+				<Link href={href} className="buttonPrimary button">
 					{buttonLabel}
 				</Link>
 			</div>
 
-			<div className="media column">
+			<div className="media">
 				<Image src={image} alt={imageAlt} width={812} height={542} className="image" />
 			</div>
 		</article>

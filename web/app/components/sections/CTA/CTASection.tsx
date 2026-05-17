@@ -14,7 +14,7 @@ const items = [
 		title: "Retreats",
 		description:
 			"We believe there is nothing more powerful that can happen in a man's life, than when he gathers with 30 to 40 men for one reason only. To get your heart back. To get wounds healed. To get vision unleashed. And that's why we do our 2–3 day retreats. And let us tell you, we do not skimp. Good food, amazing properties, and phones turned off. How it should be.",
-		image: "/web/public/images/retreats.jpg",
+		image: "/images/retreats.jpg",
 		imageAlt: "Retreat cabins in a quiet natural landscape.",
 		imageLeft: true,
 	},
@@ -22,7 +22,7 @@ const items = [
 		title: "3 Month Online Cohorts",
 		description:
 			"One way we hope to serve you all is through our curriculum that will equip us all to speak and to live well. Weekly live keynote, a Slack group to process with the other men while you engage the content, plus ongoing support throughout the week and much more.",
-		image: "/web/public/images/cohorts.jpg",
+		image: "/images/cohorts.jpg",
 		imageAlt: "Speaker standing at a podium during a talk.",
 		imageLeft: false,
 	},
@@ -30,7 +30,7 @@ const items = [
 		title: "The Men’s Council Mastermind",
 		description:
 			"Twice a year, about 30 of us men get together for a private off the books meeting. We sharpen each other, encourage one another, and most of all link arms in our vision, justice, and ministry.",
-		image: "/web/public/images/mastermind.jpg",
+		image: "/images/mastermind.jpg",
 		imageAlt: "Still life image used in the mastermind section.",
 		imageLeft: true,
 	},

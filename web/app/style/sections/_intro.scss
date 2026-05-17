@@ -4,6 +4,11 @@
 	padding: var(--space-24) 0 var(--space-20);
 	margin: var(--section-space-y) 0;
 
+	@include mobile {
+		padding: var(--space-8) 0;
+		margin: var(--space-8) 0;
+	}
+
 	.introContainer {
 		margin-inline: auto;
 		text-align: center;
@@ -13,12 +18,22 @@
 		margin: 0 auto;
 		text-align: center;
 		@include heading-text(3rem, 0.98, 700, uppercase);
+
+		@include mobile {
+			@include heading-text(1.5rem, 1, 700, uppercase);
+			margin-bottom: var(--space-8);
+		}
 	}
 
 	.lead {
 		margin: var(--space-8) auto 0;
 		text-align: center;
-		@include mono-text(1.25rem, 1.55, 400, none);
+		@include mono-text(1.25rem, 1.6, 400, none);
+
+		@include mobile {
+			margin: 0 auto var(--space-8);
+			@include mono-text(0.875rem, 1.6, 400, none);
+		}
 	}
 
 	.copy {
@@ -26,10 +41,20 @@
 		display: grid;
 		gap: var(--space-6);
 
+		@include mobile {
+			gap: var(--space-4);
+			margin: 0 auto var(--space-8);
+			@include mono-text(0.875rem, 1.6, 400, none);
+		}
+
 		p {
 			margin: 0;
 			text-align: center;
-			@include mono-text(1.25rem, 1.55, 400, none);
+			@include mono-text(1.25rem, 1.6, 400, none);
+
+			@include mobile {
+				@include mono-text(0.875rem, 1.6, 400, none);
+			}
 		}
 	}
 
@@ -37,6 +62,11 @@
 		margin: var(--space-12) auto 0;
 		text-align: center;
 		@include accent-text(30px, 1.05, 400, uppercase);
+
+		@include mobile {
+			@include accent-text(1.25rem, 1.2, 400, uppercase);
+			margin: 0 auto var(--space-14);
+		}
 	}
 
 	.statementUnderline {
@@ -48,6 +78,9 @@
 	.copy,
 	.statement {
 		width: min(100% - 113px, var(--container-feature));
+		@include mobile {
+			width: min(100% - 32px, var(--container-feature));
+		}
 	}
 
 	.divider {
@@ -55,5 +88,10 @@
 		margin: var(--section-divider-y) auto 0;
 		background: var(--color-ink);
 		max-width: 646px;
+
+		@include mobile {
+			margin: var(--space-8) auto 0;
+			max-width: 150px;
+		}
 	}
 }
