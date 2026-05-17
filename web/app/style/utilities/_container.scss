@@ -3,17 +3,22 @@
 	margin-inline: auto;
 }
 
-.containerNarrow {
+.container.narrow {
 	width: min(100% - 64px, var(--container-narrow));
 	margin-inline: auto;
 }
 
-.containerFeature {
+.container.feature {
 	width: min(100% - 64px, var(--container-feature));
 	margin-inline: auto;
 }
 
-.containerText {
+.container.text {
 	width: min(100% - 64px, var(--container-text));
+	margin-inline: auto;
+}
+
+.container.cta-section-content {
+	width: min(100% - 64px, var(--container-cta-section));
 	margin-inline: auto;
 }

@@ -1,0 +1,18 @@
+.cta-section {
+	padding: var(--space-20) 0 var(--space-24);
+	background: var(--color-paper);
+	color: var(--color-ink);
+	overflow: hidden;
+
+	.title {
+		margin: 0 auto;
+		text-align: center;
+		@include heading-text(6rem, 1, 700, uppercase);
+	}
+
+	.list {
+		margin-top: var(--section-space-y);
+		display: grid;
+		gap: var(--space-24);
+	}
+}

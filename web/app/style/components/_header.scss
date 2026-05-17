@@ -35,7 +35,7 @@
 		white-space: nowrap;
 		color: var(--color-white);
 		padding: 0 var(--space-5);
-		@include mono-text(var(--font-base-size), 1, 400, uppercase);
+		@include mono-text(1rem, 1, 400, uppercase);
 
 		&:first-child {
 			padding-left: 0;
