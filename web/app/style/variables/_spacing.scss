@@ -4,9 +4,11 @@
 	--container-narrow: 980px;
 	--container-feature: 1272px;
 	--container-text: 760px;
+	--container-offset: calc((100% - var(--container-cta-feature)) / 2);
 
 	--section-space-y: 120px;
 	--section-divider-y: 90px;
+	--section-divider: 50px;
 
 	--space-1: 6px;
 	--space-2: 8px;

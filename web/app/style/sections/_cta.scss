@@ -14,5 +14,9 @@
 		margin-top: var(--section-space-y);
 		display: grid;
 		gap: var(--space-24);
+
+		/* Center the list to match the 1600px design artboard */
+		width: min(100% - 64px, var(--container-cta-feature));
+		margin-inline: auto;
 	}
 }
