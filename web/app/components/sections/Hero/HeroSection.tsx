@@ -1,7 +1,7 @@
 const Hero = () => {
 	return (
 		<section
-			className="hero"
+			className="hero-section"
 			style={{
 				backgroundImage: "url('https://admin.formingmen.com/uploads/heroimage_6386634d99.jpg')",
 			}}

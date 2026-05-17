@@ -1,15 +1,24 @@
 @import "tailwindcss";
 
+/* Variables */
 @import "../app/style/variables/colors";
 @import "../app/style/variables/fonts";
 @import "../app/style/variables/spacing";
 
+/* Shared */
 @import "../app/style/shared/mixins";
 @import "../app/style/shared/reset";
 @import "../app/style/shared/base";
 
+/* Utilities */
 @import "../app/style/utilities/container";
 @import "../app/style/utilities/buttons";
 
+/* Components */
 @import "../app/style/components/header";
-@import "../app/style/components/hero";
+@import "../app/style/components/cta-feature";
+
+/* Sections */
+@import "../app/style/sections/hero";
+@import "../app/style/sections/intro";
+@import "../app/style/sections/cta";
