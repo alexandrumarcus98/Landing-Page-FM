@@ -14,6 +14,7 @@
 		text-align: center;
 		@include heading-text(4rem, 1, 700, uppercase);
 		margin-bottom: var(--section-space-y);
+		width: min(100% - 32px, var(--container-feature));
 
 		.text-accent {
 			color: var(--color-accent);
@@ -89,8 +90,14 @@
 		padding: var(--space-12) 0 var(--space-12);
 
 		.title {
-			@include heading-text(3rem, 1, 700, uppercase);
+			@include heading-text(2.5rem, 1.1, 700, uppercase);
 			margin-bottom: var(--space-12);
+		}
+
+		@media (max-width: 380px) {
+			.title {
+				@include heading-text(2rem, 1.1, 700, uppercase);
+			}
 		}
 
 		.form-wrapper {

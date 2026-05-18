@@ -4,6 +4,7 @@ import Link from "next/link";
 import RichText from "@/app/components/shared/RichText";
 import { getMedia } from "@/app/lib/strapi";
 
+import { DistressBot, DistressTop } from "@/app/components/ui/DistressDividers";
 import type { ContactSection, Footer } from "@/app/types/strapi";
 
 interface FooterProps {
@@ -23,7 +24,7 @@ const Footer = ({ children, contactData, data }: FooterProps) => {
 
 	return (
 		<footer
-			className="footer-section"
+			className="footer-section has-distress-edges"
 			style={
 				{
 					"--contact-bg": `linear-gradient(180deg, #EAE8DC 16.46%, rgba(234, 232, 220, 0.6) 100%),
@@ -34,6 +35,8 @@ const Footer = ({ children, contactData, data }: FooterProps) => {
 			{children}
 
 			<div className="container footer-container">
+				<DistressBot />
+				<DistressTop />
 				{socials.length > 0 && (
 					<div className="footer-socials" aria-label="Social Media Links">
 						{socials.map((social) => (

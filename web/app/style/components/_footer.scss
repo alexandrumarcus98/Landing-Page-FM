@@ -3,6 +3,25 @@
 	text-align: center;
 	position: relative;
 
+	&.has-distress-edges {
+		position: relative;
+
+		.distress-divider {
+			position: absolute;
+			right: 0;
+			width: 250px;
+			height: 536px;
+			pointer-events: none;
+			z-index: 10;
+			top: 0;
+
+			&-top {
+				left: 0;
+				right: auto;
+			}
+		}
+	}
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -37,9 +56,17 @@
 			gap: var(--space-6);
 			margin-bottom: var(--section-space-y);
 		}
+
+		.copyright {
+			margin: 0 var(--space-6);
+		}
 	}
 
 	@include mobile {
 		padding: var(--space-6) 0;
+
+		.distress-divider {
+			display: none;
+		}
 	}
 }

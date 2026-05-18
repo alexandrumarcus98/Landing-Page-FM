@@ -4,6 +4,20 @@
 	color: var(--color-ink);
 	overflow: hidden;
 
+	&.has-distress-edges {
+		position: relative;
+
+		.distress-divider {
+			position: absolute;
+			right: 0;
+			width: 250px;
+			height: 536px;
+			pointer-events: none;
+			z-index: 10;
+			top: 0;
+		}
+	}
+
 	.title {
 		margin: 0 auto;
 		text-align: center;
@@ -36,13 +50,18 @@
 	@include mobile {
 		padding: var(--space-8) 0 var(--space-12);
 
+		.distress-divider {
+			display: none;
+		}
+
 		.title {
-			@include heading-text(2.5rem, 1.1, 700, uppercase);
+			@include heading-text(3rem, 1, 700, uppercase);
 		}
 
 		.list {
 			gap: var(--space-14);
 			margin-top: var(--space-14);
+			width: min(100% - 10px, var(--container-cta-feature));
 		}
 	}
 }

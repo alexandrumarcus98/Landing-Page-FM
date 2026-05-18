@@ -6,7 +6,7 @@ export const DistressTop: React.FC<DividerProps> = ({ className = "" }) => {
 	return (
 		<svg
 			className={`distress-divider distress-divider-top ${className}`}
-			viewBox="0 0 536 250"
+			viewBox="0 0 250 536"
 			fill="currentColor"
 			xmlns="http://www.w3.org/2000/svg"
 			preserveAspectRatio="none"
@@ -166,8 +166,8 @@ export const DistressTop: React.FC<DividerProps> = ({ className = "" }) => {
 export const DistressBot: React.FC<DividerProps> = ({ className = "" }) => {
 	return (
 		<svg
-			className={`distress-divider distress-divider-top ${className}`}
-			viewBox="0 0 536 250"
+			className={`distress-divider distress-divider-bot ${className}`}
+			viewBox="0 0 250 536"
 			fill="currentColor"
 			xmlns="http://www.w3.org/2000/svg"
 			preserveAspectRatio="none"
