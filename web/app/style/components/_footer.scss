@@ -1,17 +1,42 @@
 .footer-section {
 	padding: var(--space-10) 0;
 	text-align: center;
+	position: relative;
 
-	.footerContainer {
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+
+		background-image: var(--contact-bg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		-webkit-transform: scaleX(-1);
+		-moz-transform: scaleX(-1);
+		-o-transform: scaleX(-1);
+		transform: scaleX(-1);
+		filter: FlipH;
+		-ms-filter: "FlipH";
+	}
+
+	.footer-container {
+		margin: var(--section-space-y) auto;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-6);
-	}
 
-	.socials {
-		display: flex;
-		justify-content: center;
-		gap: var(--space-6);
+		.footer-socials {
+			display: flex;
+			justify-content: center;
+			gap: var(--space-6);
+			margin-bottom: var(--section-space-y);
+		}
 	}
 
 	.meta {

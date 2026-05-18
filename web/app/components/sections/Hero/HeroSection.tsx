@@ -1,32 +1,36 @@
-const Hero = () => {
+import Link from "next/link";
+
+import DynamicText from "@/app/components/shared/DynamicText";
+import { getMedia } from "@/app/lib/strapi";
+import type { HeroSection } from "@/app/types/strapi";
+
+type HeroSectionProps = {
+	data: HeroSection;
+};
+
+export default function HeroSection({ data }: HeroSectionProps) {
+	const backgroundImageUrl = getMedia(data.backgroundImage?.url);
+	const { title, subtitle, button } = data;
+
 	return (
-		<section
-			className="hero-section"
-			style={{
-				backgroundImage: "url('https://admin.formingmen.com/uploads/heroimage_6386634d99.jpg')",
-			}}
-		>
-			<div className="container heroContainer">
+		<section className="hero-section" style={{ backgroundImage: `url('${backgroundImageUrl}')` }}>
+			<div className="container hero-container">
 				<div className="hero-content">
 					<h1 className="title">
-						Becoming a man
-						<br />
-						doesn&apos;t happen by
-						<br />
-						accident
+						<DynamicText segments={title} />
 					</h1>
 
 					<p className="subtitle">
-						Men are <span className="subtitleUnderline">formed</span>
+						<DynamicText segments={subtitle} underlineClass="subtitleUnderline" />
 					</p>
 
-					<a href="#intro" className="buttonPrimary heroButton">
-						Tell me more
-					</a>
+					{button && (
+						<Link href={button.url} className={`button-primary button ${button.variant}`}>
+							{button.label}
+						</Link>
+					)}
 				</div>
 			</div>
 		</section>
 	);
-};
-
-export default Hero;
+}

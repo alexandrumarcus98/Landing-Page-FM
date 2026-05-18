@@ -1,29 +1,57 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-const Footer = () => {
+import DynamicText from "@/app/components/shared/DynamicText";
+import { getMedia } from "@/app/lib/strapi";
+
+import type { ContactSection, Footer } from "@/app/types/strapi";
+
+interface FooterProps {
+	contactData: ContactSection | null;
+	data: Footer | null;
+	children: React.ReactNode;
+}
+
+const Footer = ({ children, contactData, data }: FooterProps) => {
+	if (!data || !contactData) {
+		return null;
+	}
+
+	const { backgroundImage } = contactData;
+	const { copyright, socials = [] } = data;
+	const bgUrl = getMedia(backgroundImage?.url);
+
 	return (
-		<footer className="footer">
-			<div className="container footerContainer">
-				<div className="socials" aria-label="Social media links">
-					<Link href="#" className="socialLink" aria-label="X">
-						<Image src="/images/x-icon.svg" alt="X" width={24} height={24} />
-					</Link>
-					<Link href="#" className="socialLink" aria-label="YouTube">
-						<Image src="/images/youtube-icon.svg" alt="YouTube" width={24} height={24} />
-					</Link>
-					<Link href="#" className="socialLink" aria-label="Facebook">
-						<Image src="/images/facebook-icon.svg" alt="Facebook" width={24} height={24} />
-					</Link>
-					<Link href="#" className="socialLink" aria-label="Instagram">
-						<Image src="/images/instagram-icon.svg" alt="Instagram" width={24} height={24} />
-					</Link>
-				</div>
+		<footer
+			className="footer-section"
+			style={
+				{
+					"--contact-bg": `linear-gradient(180deg, #EAE8DC 16.46%, rgba(234, 232, 220, 0.6) 100%),
+			url('${bgUrl}')`,
+				} as React.CSSProperties
+			}
+		>
+			{children}
 
-					<p className="meta">
-						© 2024 FormingMen.co.<br/>All Rights Reserved.<br/><Link href="#">Privacy Policy</Link> |{" "}
-						<Link href="#">Terms &amp; Conditions</Link>
-					</p>
+			<div className="container footer-container">
+				{socials.length > 0 && (
+					<div className="footer-socials" aria-label="Social Media Links">
+						{socials.map((social) => (
+							<Link key={social.id} href={social.url} target="_blank" rel="noopener noreferrer">
+								<Image
+									src={getMedia(social.icon.url) || ""}
+									alt={`Link to ${social.url}`}
+									width={24}
+									height={24}
+								/>
+							</Link>
+						))}
+					</div>
+				)}
+
+				<p>
+					<DynamicText segments={copyright} />
+				</p>
 			</div>
 		</footer>
 	);

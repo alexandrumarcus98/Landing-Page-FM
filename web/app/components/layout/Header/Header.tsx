@@ -4,35 +4,57 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const leftLinks = ["Fighting shadows book", "retreats", "primal path"];
-const rightLinks = ["Conference", "jon’s newsletter", "Video Courses"];
-const mobileLinks = [...leftLinks, ...rightLinks];
+import { getMedia } from "@/app/lib/strapi";
+import type { Header } from "@/app/types/strapi";
+import { formatStrapiUrl } from "@/app/utils/format";
 
-const Header = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface HeaderProps {
+	data: Header | null;
+}
+
+const Header = ({ data }: HeaderProps) => {
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+	if (!data) {
+		return null;
+	}
+
+	const { logo, leftLinks, rightLinks } = data;
+
+	const logoUrl = getMedia(logo?.url) || "";
+	const logoAlt = logo?.alternativeText || "";
+	const mobileLinks = [...leftLinks, ...rightLinks];
 
 	const closeMenu = () => setIsMenuOpen(false);
 
 	return (
 		<header className={`header ${isMenuOpen ? "isOpen" : ""}`}>
-			<div className="container headerContainer">
+			<div className="container header-container">
 				<nav className="siteNav" aria-label="Primary navigation">
 					<div className="nav navLeft desktopNav">
 						{leftLinks.map((item) => (
-							<Link key={item} href="#" className="link">
-								{item}
+							<Link
+								key={item?.id}
+								href={formatStrapiUrl(item.label.text, item.url)}
+								className="link"
+							>
+								{item?.label.text}
 							</Link>
 						))}
 					</div>
 
 					<Link href="/" className="logo" aria-label="Forming Men home">
-						<Image src="/images/Logo.png" alt="Forming Men" width={145} height={100} />
+						<Image src={logoUrl} alt={logoAlt} width={145} height={100} />
 					</Link>
 
 					<div className="nav navRight desktopNav">
 						{rightLinks.map((item) => (
-							<Link key={item} href="#" className="link">
-								{item}
+							<Link
+								key={item?.id}
+								href={formatStrapiUrl(item.label.text, item.url)}
+								className="link"
+							>
+								{item?.label.text}
 							</Link>
 						))}
 					</div>
@@ -55,8 +77,13 @@ const Header = () => {
 
 				<div id="mobile-navigation" className="mobile-nav" aria-hidden={!isMenuOpen}>
 					{mobileLinks.map((item) => (
-						<Link key={item} href="#" className="mobileLink" onClick={closeMenu}>
-							{item}
+						<Link
+							key={item?.id}
+							href={formatStrapiUrl(item.label.text, item.url)}
+							className="mobileLink"
+							onClick={closeMenu}
+						>
+							{item?.label.text}
 						</Link>
 					))}
 				</div>

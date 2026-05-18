@@ -1,24 +1,38 @@
 import Footer from "@/app/components/layout/Footer/Footer";
 import Header from "@/app/components/layout/Header/Header";
-import Main from "@/app/components/layout/Main/Main";
 import ContactSection from "@/app/components/sections/Contact/ContactSection";
-import CTASection from "@/app/components/sections/CTA/CTASection";
-import Hero from "@/app/components/sections/Hero/HeroSection";
+import CtaSection from "@/app/components/sections/Cta/CtaSection";
+import HeroSection from "@/app/components/sections/Hero/HeroSection";
 import IntroSection from "@/app/components/sections/Intro/IntroSection";
 
-const Home = () => {
+import { getLandingPageData } from "@/app/lib/strapi";
+import { LandingPagePayload } from "@/app/types/strapi";
+
+export const Home = async () => {
+	const strapiData: LandingPagePayload = await getLandingPageData();
+
+	if (!strapiData) {
+		return <div>Loading or No data found. Make sure Strapi is running!</div>;
+	}
+
+	console.log(strapiData.Footer);
+
 	return (
 		<>
-			<Header />
+			{strapiData.Header && <Header data={strapiData.Header} />}
+			<main>
+				{strapiData.Hero && <HeroSection data={strapiData.Hero} />}
 
-			<Main>
-				<Hero />
-				<IntroSection />
-				<CTASection />
-				<ContactSection />
-			</Main>
+				{strapiData.Intro && <IntroSection data={strapiData.Intro} />}
 
-			<Footer />
+				{strapiData.CTA && <CtaSection data={strapiData.CTA} />}
+			</main>
+
+			{strapiData.Footer && (
+				<Footer contactData={strapiData.Contact} data={strapiData.Footer}>
+					<ContactSection data={strapiData.Contact} />
+				</Footer>
+			)}
 		</>
 	);
 };

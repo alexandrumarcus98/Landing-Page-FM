@@ -1,6 +1,5 @@
 .contact-section {
 	padding: var(--space-20) 0 var(--space-24);
-	background: var(--color-paper);
 	color: var(--color-ink);
 	overflow: hidden;
 
@@ -18,67 +17,87 @@
 		margin: 0 auto;
 		text-align: center;
 		@include heading-text(4rem, 1, 700, uppercase);
-		max-width: 800px;
-		margin-bottom: var(--space-16);
+		margin-bottom: var(--section-space-y);
+
+		.text-accent {
+			color: var(--color-accent);
+		}
 
 		@include mobile {
-			@include heading-text(2.5rem, 1.1, 700, uppercase);
+			@include heading-text(3rem, 1, 700, uppercase);
 			margin-bottom: var(--space-12);
 		}
 	}
 
 	.form-wrapper {
 		width: 100%;
-		max-width: 600px;
-		border: 1px solid var(--color-ink);
+		border: 2px solid var(--color-ink);
 		padding: var(--space-12) var(--space-8);
 		text-align: center;
+		margin: auto;
+		max-width: 870px;
+
+		.form-content {
+			padding: 0 var(--section-divider-y);
+
+			@include mobile {
+				padding: 0 var(--space-6);
+			}
+			.form-title {
+				@include mono-text(2rem, 1.2, 700, uppercase);
+				margin-bottom: var(--space-8);
+			}
+
+			.form-subtitle {
+				@include mono-text(1rem, 1.4, 400, none);
+				margin-bottom: var(--space-12);
+			}
+
+			.contact-form {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-3);
+
+				.input-group {
+					width: 100%;
+
+					&:last-of-type {
+						margin-bottom: var(--space-8);
+					}
+
+					input,
+					textarea {
+						width: 100%;
+						background: transparent;
+						border: 2px solid var(--color-ink);
+						padding: var(--space-4);
+						color: var(--color-ink);
+						@include mono-text(1rem, 1.4, 400, none);
+
+						&::placeholder {
+							color: rgba(0, 0, 0, 0.5);
+						}
+
+						&:focus {
+							outline: none;
+							border-width: 2px;
+						}
+					}
+
+					textarea {
+						resize: vertical;
+						min-height: 120px;
+					}
+				}
+
+				.button-primary {
+					width: 100%;
+				}
+			}
+		}
 
 		@include mobile {
 			padding: var(--space-8) var(--space-4);
-		}
-	}
-
-	.form-title {
-		@include mono-text(1.25rem, 1.2, 700, uppercase);
-		margin-bottom: var(--space-4);
-	}
-
-	.form-subtitle {
-		@include mono-text(1rem, 1.4, 400, none);
-		margin-bottom: var(--space-8);
-	}
-
-	.contact-form {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-4);
-	}
-
-	.input-group {
-		width: 100%;
-		
-		input, textarea {
-			width: 100%;
-			background: transparent;
-			border: 1px solid var(--color-ink);
-			padding: var(--space-4);
-			@include mono-text(1rem, 1.4, 400, none);
-			color: var(--color-ink);
-
-			&::placeholder {
-				color: rgba(0, 0, 0, 0.5);
-			}
-
-			&:focus {
-				outline: none;
-				border-width: 2px;
-			}
-		}
-
-		textarea {
-			resize: vertical;
-			min-height: 120px;
 		}
 	}
 }
