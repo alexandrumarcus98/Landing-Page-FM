@@ -1,10 +1,24 @@
 .intro-section {
 	background: var(--color-paper);
 	color: var(--color-ink);
-	padding: var(--space-24) 0 var(--space-20);
-	margin: var(--section-space-y) 0;
+	padding: var(--section-space-y) 0 0;
+	overflow: hidden;
 
-	.introContainer {
+	&.has-distress-edges {
+		position: relative;
+
+		.distress-divider {
+			position: absolute;
+			left: 0;
+			width: 250px;
+			height: 536px;
+			pointer-events: none;
+			z-index: 10;
+			top: 0;
+		}
+	}
+
+	.intro-container {
 		margin-inline: auto;
 		text-align: center;
 	}
@@ -12,40 +26,39 @@
 	.title {
 		margin: 0 auto;
 		text-align: center;
+		margin-bottom: var(--space-12);
 		@include heading-text(3rem, 0.98, 700, uppercase);
 	}
 
-	.lead {
-		margin: var(--space-8) auto 0;
-		text-align: center;
-		@include mono-text(1.25rem, 1.55, 400, none);
-	}
-
-	.copy {
-		margin: var(--space-8) auto 0;
+	.description {
+		margin: 0 auto var(--space-12);
 		display: grid;
-		gap: var(--space-6);
+		gap: var(--space-8);
 
 		p {
-			margin: 0;
+			margin: 0 var(--space-8);
 			text-align: center;
-			@include mono-text(1.25rem, 1.55, 400, none);
+			@include mono-text(1.25rem, 1.6, 400, none);
 		}
 	}
 
 	.statement {
-		margin: var(--space-12) auto 0;
+		margin: 0 auto;
 		text-align: center;
 		@include accent-text(30px, 1.05, 400, uppercase);
+
+		p {
+			margin: 0;
+		}
 	}
 
-	.statementUnderline {
+	.statement-underline {
 		text-decoration: underline;
 		text-underline-offset: 3px;
 	}
 
-	.lead,
-	.copy,
+	.title,
+	.description,
 	.statement {
 		width: min(100% - 113px, var(--container-feature));
 	}
@@ -55,5 +68,77 @@
 		margin: var(--section-divider-y) auto 0;
 		background: var(--color-ink);
 		max-width: 646px;
+	}
+
+	@media (max-width: ($tablet - 1px)) {
+		.title {
+			@include heading-text(2.25rem, 1, 700, uppercase);
+		}
+
+		.description {
+			p {
+				@include mono-text(1.1rem, 1.6, 400, none);
+			}
+		}
+
+		.statement {
+			@include accent-text(1.5rem, 1.2, 400, uppercase);
+		}
+	}
+
+	@include mobile {
+		padding: var(--space-8) 0;
+		margin: var(--space-8) 0;
+
+		.distress-divider {
+			display: none;
+		}
+
+		.title {
+			@include heading-text(1.5rem, 1, 700, uppercase);
+			margin-bottom: var(--space-8);
+		}
+
+		.description {
+			gap: var(--space-4);
+			margin: 0 auto var(--space-8);
+
+			p {
+				@include mono-text(0.875rem, 1.6, 400, none);
+			}
+		}
+
+		.statement {
+			@include accent-text(1.25rem, 1.2, 400, uppercase);
+			margin: 0 auto var(--space-14);
+		}
+
+		.statement-underline {
+			display: inline-block;
+		}
+
+		.title,
+		.description,
+		.statement {
+			width: min(100% - 32px, var(--container-feature));
+		}
+
+		.divider {
+			margin: var(--space-8) auto 0;
+			max-width: 150px;
+		}
+
+		@media (orientation: landscape) and (max-height: 500px) {
+			padding: var(--space-4) 0;
+			margin: var(--space-4) 0;
+
+			.title {
+				margin-bottom: var(--space-4);
+			}
+
+			.description {
+				margin-bottom: var(--space-4);
+			}
+		}
 	}
 }

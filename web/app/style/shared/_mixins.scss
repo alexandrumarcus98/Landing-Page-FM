@@ -1,3 +1,24 @@
+$mobile: 767px;
+$tablet: 1200px;
+
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: ($mobile + 1px)) and (max-width: ($tablet - 1px)) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $tablet) {
+		@content;
+	}
+}
+
 @mixin flex-center {
 	display: flex;
 	align-items: center;
@@ -39,7 +60,9 @@
 }
 
 @mixin button-base($width: 203px, $height: 52px, $padding-y: 20px, $padding-x: 40px) {
-	@apply inline-flex items-center justify-center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	width: $width;
 	height: $height;
 	padding: $padding-y $padding-x;
@@ -53,6 +76,7 @@
 	letter-spacing: 0;
 	text-align: center;
 	text-transform: uppercase;
+	text-wrap: nowrap;
 }
 
 @mixin section-title($size: 3.5rem, $line-height: 0.98, $max-width: 860px) {

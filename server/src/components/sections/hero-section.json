@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_hero_sections",
+  "info": {
+    "displayName": "Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "blocks"
+    },
+    "subHeading": {
+      "type": "blocks"
+    },
+    "button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

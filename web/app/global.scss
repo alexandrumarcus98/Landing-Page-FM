@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 /* Variables */
 @import "../app/style/variables/colors";
 @import "../app/style/variables/fonts";
@@ -13,12 +11,15 @@
 /* Utilities */
 @import "../app/style/utilities/container";
 @import "../app/style/utilities/buttons";
+@import "../app/style/utilities/utils";
 
 /* Components */
 @import "../app/style/components/header";
 @import "../app/style/components/cta-feature";
+@import "../app/style/components/footer";
 
 /* Sections */
 @import "../app/style/sections/hero";
 @import "../app/style/sections/intro";
 @import "../app/style/sections/cta";
+@import "../app/style/sections/contact";

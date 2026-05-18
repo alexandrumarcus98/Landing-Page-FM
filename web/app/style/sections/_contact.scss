@@ -1,0 +1,115 @@
+.contact-section {
+	padding: var(--space-20) 0 var(--space-24);
+	color: var(--color-ink);
+	overflow: hidden;
+
+	.contact-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title {
+		margin: 0 auto;
+		text-align: center;
+		@include heading-text(4rem, 1, 700, uppercase);
+		margin-bottom: var(--section-space-y);
+		width: min(100% - 32px, var(--container-feature));
+
+		.text-accent {
+			color: var(--color-accent);
+		}
+	}
+
+	.form-wrapper {
+		width: 100%;
+		border: 2px solid var(--color-ink);
+		padding: var(--space-12) var(--space-8);
+		text-align: center;
+		margin: auto;
+		max-width: 870px;
+
+		.form-content {
+			padding: 0 var(--section-divider-y);
+
+			.form-title {
+				@include mono-text(2rem, 1.2, 700, uppercase);
+				margin-bottom: var(--space-8);
+			}
+
+			.form-subtitle {
+				@include mono-text(1rem, 1.4, 400, none);
+				margin-bottom: var(--space-12);
+			}
+
+			.contact-form {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-3);
+
+				.input-group {
+					width: 100%;
+
+					&:last-of-type {
+						margin-bottom: var(--space-8);
+					}
+
+					input,
+					textarea {
+						width: 100%;
+						background: transparent;
+						border: 2px solid var(--color-ink);
+						padding: var(--space-4);
+						color: var(--color-ink);
+						@include mono-text(1rem, 1.4, 400, none);
+
+						&::placeholder {
+							color: rgba(0, 0, 0, 0.5);
+						}
+
+						&:focus {
+							outline: none;
+							border-width: 2px;
+						}
+					}
+
+					textarea {
+						resize: vertical;
+						min-height: 120px;
+					}
+				}
+
+				.button-primary {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	@include mobile {
+		padding: var(--space-12) 0 var(--space-12);
+
+		.title {
+			p {
+				@include heading-text(3rem, 1, 700, uppercase);
+				margin-bottom: var(--space-12);
+				white-space: pre-line;
+				word-break: break-word;
+			}
+		}
+
+		@media (max-width: 380px) {
+			.title {
+				@include heading-text(2rem, 1.1, 700, uppercase);
+			}
+		}
+
+		.form-wrapper {
+			padding: var(--space-8) var(--space-4);
+
+			.form-content {
+				padding: 0 var(--space-6);
+			}
+		}
+	}
+}

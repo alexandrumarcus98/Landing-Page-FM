@@ -1,43 +1,62 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type CtaFeatureProps = {
-	title: string;
-	date?: string;
-	description: string;
-	image: string;
-	imageAlt: string;
-	imageLeft?: boolean;
-	href?: string;
-	buttonLabel?: string;
-};
+import RichText from "@/app/components/shared/RichText";
+import { getMedia } from "@/app/lib/strapi";
 
-const CtaFeature = ({
-	title,
-	date,
-	description,
-	image,
-	imageAlt,
-	imageLeft = false,
-	href = "#",
-	buttonLabel = "Tell Me More!",
-}: CtaFeatureProps) => {
+import type { CtaItem } from "@/app/types/strapi";
+
+interface CtaFeatureProps {
+	data: CtaItem;
+}
+
+const CtaFeature = ({ data }: CtaFeatureProps) => {
+	if (!data) {
+		return null;
+	}
+
+	const {
+		title,
+		date,
+		description,
+		image,
+		imageAlt,
+		imageLeft = false,
+		href = "#",
+		buttonLabel = "Tell Me More!",
+	} = data;
+
+	const imageUrl = getMedia(image?.url);
+	const altText = imageAlt || image?.alternativeText || title;
+
 	return (
-		<article className={`cta-feature ${imageLeft ? "imageLeft" : ""}`}>
+		<article className={`cta-feature${imageLeft ? " image-left" : ""}`}>
 			<div className="text">
-				<h3 className="itemTitle">{title}</h3>
+				<h3 className="title">{title}</h3>
 
 				{date ? <p className="date">{date}</p> : null}
 
-				<p className="description">{description}</p>
+				<div className="description">
+					<RichText content={description} />
+				</div>
 
-				<Link href={href} className="buttonPrimary itemButton">
-					{buttonLabel}
-				</Link>
+				{buttonLabel && href && (
+					<Link href={href} className="button-primary button">
+						{buttonLabel}
+					</Link>
+				)}
 			</div>
 
 			<div className="media">
-				<Image src={image} alt={imageAlt} width={812} height={542} className="image" />
+				{imageUrl && (
+					<Image
+						src={imageUrl}
+						alt={altText}
+						width={image?.width || 812}
+						height={image?.height || 542}
+						className="image"
+					/>
+				)}
 			</div>
 		</article>
 	);

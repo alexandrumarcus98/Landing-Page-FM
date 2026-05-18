@@ -3,8 +3,9 @@
 	inset: 0 0 auto 0;
 	z-index: 20;
 	padding-top: var(--space-1);
+	overflow: visible;
 
-	.headerContainer {
+	.header-container {
 		position: relative;
 	}
 
@@ -19,6 +20,10 @@
 		display: flex;
 		align-items: center;
 		min-width: 0;
+	}
+
+	.desktopNav {
+		display: flex;
 	}
 
 	.navLeft {
@@ -48,9 +53,98 @@
 
 	.logo {
 		@include flex-center;
+		img {
+			height: auto;
+			max-width: 100%;
+		}
+
+		@include mobile {
+			img {
+				width: 100px;
+			}
+		}
 	}
 
 	.menuButton {
 		display: none;
+		align-items: center;
+		gap: var(--space-3);
+		margin-left: auto;
+		border: 0;
+		background: transparent;
+		color: var(--color-white);
+		padding: var(--space-1) var(--space-0);
+		@include mono-text(1rem, 1, 400, uppercase);
+	}
+
+	.menuIcon {
+		display: inline-flex;
+		flex-direction: column;
+		gap: 4px;
+
+		span {
+			display: block;
+			width: 18px;
+			height: 2px;
+			background: currentColor;
+
+			&:last-child {
+				width: 14px;
+				margin-left: auto;
+			}
+		}
+	}
+
+	.mobile-nav {
+		display: none;
+		position: absolute;
+		top: calc(100% + var(--space-4));
+		left: 0;
+		right: 0;
+		padding: var(--space-6);
+		background: var(--color-paper);
+		border: 2px solid var(--color-ink);
+		box-shadow: 0 12px 24px rgba(40, 40, 40, 0.12);
+		flex-direction: column;
+		gap: var(--space-4);
+	}
+
+	.mobileLink {
+		color: var(--color-ink);
+		@include mono-text(1rem, 1.2, 400, uppercase);
+	}
+
+	&.isOpen .mobile-nav {
+		display: flex;
+	}
+
+	@media (max-width: ($tablet - 1px)) {
+		.siteNav {
+			grid-template-columns: auto 1fr auto;
+			column-gap: 0;
+			padding: 0 var(--space-0);
+		}
+
+		.desktopNav {
+			display: none;
+		}
+
+		.logo {
+			justify-self: center;
+		}
+
+		.menuButton {
+			display: inline-flex;
+		}
+
+		@media (orientation: landscape) and (max-height: 500px) {
+			.mobile-nav {
+				max-height: 80vh;
+				overflow-y: auto;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--space-4);
+			}
+		}
 	}
 }

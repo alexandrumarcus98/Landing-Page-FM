@@ -1,8 +1,22 @@
 .cta-section {
-	padding: var(--space-20) 0 var(--space-24);
+	padding: var(--section-space-y) 0;
 	background: var(--color-paper);
 	color: var(--color-ink);
 	overflow: hidden;
+
+	&.has-distress-edges {
+		position: relative;
+
+		.distress-divider {
+			position: absolute;
+			right: 0;
+			width: 250px;
+			height: 536px;
+			pointer-events: none;
+			z-index: 10;
+			top: 0;
+		}
+	}
 
 	.title {
 		margin: 0 auto;
@@ -10,9 +24,44 @@
 		@include heading-text(6rem, 1, 700, uppercase);
 	}
 
+	.cta-list {
+		width: 100%;
+	}
+
+	.ctaUnderline {
+		text-decoration: underline;
+	}
+
 	.list {
 		margin-top: var(--section-space-y);
 		display: grid;
 		gap: var(--space-24);
+
+		width: min(100% - 64px, var(--container-cta-feature));
+		margin-inline: auto;
+	}
+
+	@media (max-width: ($tablet - 1px)) {
+		.title {
+			@include heading-text(4rem, 1, 700, uppercase);
+		}
+	}
+
+	@include mobile {
+		padding: var(--space-8) 0 var(--space-12);
+
+		.distress-divider {
+			display: none;
+		}
+
+		.title {
+			@include heading-text(3rem, 1, 700, uppercase);
+		}
+
+		.list {
+			gap: var(--space-14);
+			margin-top: var(--space-14);
+			width: min(100% - 10px, var(--container-cta-feature));
+		}
 	}
 }

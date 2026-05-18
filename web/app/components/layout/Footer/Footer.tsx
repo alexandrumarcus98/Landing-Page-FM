@@ -1,28 +1,60 @@
+import Image from "next/image";
 import Link from "next/link";
 
-const Footer = () => {
-	return (
-		<footer className="footer">
-			<div className="container footerContainer">
-				<div className="socials" aria-label="Social media links">
-					<Link href="#" className="socialLink" aria-label="X">
-						X
-					</Link>
-					<Link href="#" className="socialLink" aria-label="YouTube">
-						B
-					</Link>
-					<Link href="#" className="socialLink" aria-label="Facebook">
-						F
-					</Link>
-					<Link href="#" className="socialLink" aria-label="Instagram">
-						I
-					</Link>
-				</div>
+import RichText from "@/app/components/shared/RichText";
+import { getMedia } from "@/app/lib/strapi";
 
-				<p className="meta">
-					© 2024 FormingMen.co. All Rights Reserved. <Link href="#">Privacy Policy</Link> |{" "}
-					<Link href="#">Terms &amp; Conditions</Link>
-				</p>
+import { DistressBot, DistressTop } from "@/app/components/ui/DistressDividers";
+import type { ContactSection, Footer } from "@/app/types/strapi";
+
+interface FooterProps {
+	contactData: ContactSection | null;
+	data: Footer | null;
+	children: React.ReactNode;
+}
+
+const Footer = ({ children, contactData, data }: FooterProps) => {
+	if (!data || !contactData) {
+		return null;
+	}
+
+	const { backgroundImage } = contactData;
+	const { copyright, socials = [] } = data;
+	const bgUrl = getMedia(backgroundImage?.url);
+
+	return (
+		<footer
+			className="footer-section has-distress-edges"
+			style={
+				{
+					"--contact-bg": `linear-gradient(180deg, #EAE8DC 16.46%, rgba(234, 232, 220, 0.6) 100%),
+			url('${bgUrl}')`,
+				} as React.CSSProperties
+			}
+		>
+			{children}
+
+			<div className="container footer-container">
+				<DistressBot />
+				<DistressTop />
+				{socials.length > 0 && (
+					<div className="footer-socials" aria-label="Social Media Links">
+						{socials.map((social) => (
+							<Link key={social.id} href={social.url} target="_blank" rel="noopener noreferrer">
+								<Image
+									src={getMedia(social.icon.url) || ""}
+									alt={`Link to ${social.url}`}
+									width={24}
+									height={24}
+								/>
+							</Link>
+						))}
+					</div>
+				)}
+
+				<div className="copyright">
+					<RichText content={copyright} />
+				</div>
 			</div>
 		</footer>
 	);

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_cta_sections",
+  "info": {
+    "displayName": "CTA Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "blocks"
+    },
+    "features": {
+      "type": "component",
+      "component": "shared.cta-feature",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

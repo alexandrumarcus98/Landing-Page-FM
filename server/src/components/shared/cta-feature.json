@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_cta_features",
+  "info": {
+    "displayName": "CTA Feature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "imageLeft": {
+      "type": "boolean"
+    },
+    "href": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

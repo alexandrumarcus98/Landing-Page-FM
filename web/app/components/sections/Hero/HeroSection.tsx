@@ -1,32 +1,37 @@
-const Hero = () => {
+import Link from "next/link";
+
+import RichText from "@/app/components/shared/RichText";
+import { getMedia } from "@/app/lib/strapi";
+
+import type { HeroSection } from "@/app/types/strapi";
+
+type HeroSectionProps = {
+	data: HeroSection;
+};
+
+export default function HeroSection({ data }: HeroSectionProps) {
+	const { heading, subHeading, button, backgroundImage } = data;
+	const backgroundImageUrl = getMedia(backgroundImage.url) || "";
+
 	return (
-		<section
-			className="hero-section"
-			style={{
-				backgroundImage: "url('https://admin.formingmen.com/uploads/heroimage_6386634d99.jpg')",
-			}}
-		>
-			<div className="container heroContainer">
+		<section className="hero-section" style={{ backgroundImage: `url('${backgroundImageUrl}')` }}>
+			<div className="container hero-container">
 				<div className="hero-content">
 					<h1 className="title">
-						Becoming a man
-						<br />
-						doesn&apos;t happen by
-						<br />
-						accident
+						<RichText content={heading} underlineClass="" isHeading />
 					</h1>
 
-					<p className="subtitle">
-						Men are <span className="subtitleUnderline">formed</span>
-					</p>
+					<div className="subtitle">
+						<RichText content={subHeading} underlineClass="subtitle-underline" />
+					</div>
 
-					<a href="#intro" className="buttonPrimary heroButton">
-						Tell me more
-					</a>
+					{button && (
+						<Link href={button.url} className={`button-primary button ${button.variant}`}>
+							{button.label}
+						</Link>
+					)}
 				</div>
 			</div>
 		</section>
 	);
-};
-
-export default Hero;
+}
