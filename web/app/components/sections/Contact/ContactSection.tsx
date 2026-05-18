@@ -15,9 +15,7 @@ const ContactSection = ({ data }: ContactSectionProps) => {
 
 	return (
 		<section className="contact-section" aria-labelledby="contact">
-			<div className="contact-bg" aria-hidden="true"></div>
-
-			<div className="container cta-header">
+			<div className="container contact-header">
 				<div className="divider" aria-hidden="true" />
 
 				<h2 id="contact" className="title">
@@ -29,7 +27,7 @@ const ContactSection = ({ data }: ContactSectionProps) => {
 						<h3 className="form-title">Have Questions?</h3>
 						<p className="form-subtitle">Let us know below and our team will be in touch!</p>
 
-						<form className="contact-form" method="">
+						<form className="contact-form" method="POST">
 							<div className="input-group">
 								<input type="text" id="fullName" name="fullName" placeholder="Full name" required />
 							</div>

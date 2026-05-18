@@ -39,15 +39,6 @@
 		}
 	}
 
-	.meta {
-		@include mono-text(0.875rem, 1.4, 400, none);
-		color: var(--color-ink);
-
-		@include mobile {
-			@include mono-text(0.75rem, 1.4, 400, none);
-		}
-	}
-
 	@include mobile {
 		padding: var(--space-6) 0;
 	}

@@ -30,8 +30,6 @@ const CtaSection = ({ data }: CtaSectionProps) => {
 	return (
 		<section className="cta-section" aria-labelledby="cta" style={sectionStyle}>
 			<div className="container cta-header">
-				<div className="divider" aria-hidden="true" />
-
 				<h2 id="cta" className="title">
 					<DynamicText segments={title} underlineClass="ctaUnderline" />
 				</h2>

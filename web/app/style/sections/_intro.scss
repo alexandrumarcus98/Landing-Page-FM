@@ -3,6 +3,20 @@
 	color: var(--color-ink);
 	padding: var(--section-space-y) 0 0;
 
+	&.has-distress-edges {
+		position: relative;
+
+		.distress-divider {
+			position: absolute;
+			left: 0;
+			transform: rotate(90deg);
+			width: 536px;
+			height: 250px;
+			pointer-events: none;
+			z-index: 10;
+		}
+	}
+
 	@include mobile {
 		padding: var(--space-8) 0;
 		margin: var(--space-8) 0;
