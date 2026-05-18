@@ -3,10 +3,6 @@
 	color: var(--color-ink);
 	overflow: hidden;
 
-	@include mobile {
-		padding: var(--space-12) 0 var(--space-12);
-	}
-
 	.contact-header {
 		display: flex;
 		flex-direction: column;
@@ -22,11 +18,6 @@
 		.text-accent {
 			color: var(--color-accent);
 		}
-
-		@include mobile {
-			@include heading-text(3rem, 1, 700, uppercase);
-			margin-bottom: var(--space-12);
-		}
 	}
 
 	.form-wrapper {
@@ -40,9 +31,6 @@
 		.form-content {
 			padding: 0 var(--section-divider-y);
 
-			@include mobile {
-				padding: 0 var(--space-6);
-			}
 			.form-title {
 				@include mono-text(2rem, 1.2, 700, uppercase);
 				margin-bottom: var(--space-8);
@@ -95,9 +83,22 @@
 				}
 			}
 		}
+	}
 
-		@include mobile {
+	@include mobile {
+		padding: var(--space-12) 0 var(--space-12);
+
+		.title {
+			@include heading-text(3rem, 1, 700, uppercase);
+			margin-bottom: var(--space-12);
+		}
+
+		.form-wrapper {
 			padding: var(--space-8) var(--space-4);
+
+			.form-content {
+				padding: 0 var(--space-6);
+			}
 		}
 	}
 }

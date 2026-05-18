@@ -16,9 +16,7 @@
       ]
     },
     "title": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": true
+      "type": "blocks"
     }
   },
   "config": {}

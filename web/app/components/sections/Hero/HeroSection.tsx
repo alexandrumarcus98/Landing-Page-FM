@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import DynamicText from "@/app/components/shared/DynamicText";
+import RichText from "@/app/components/shared/RichText";
 import { getMedia } from "@/app/lib/strapi";
+
 import type { HeroSection } from "@/app/types/strapi";
 
 type HeroSectionProps = {
@@ -9,20 +10,20 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection({ data }: HeroSectionProps) {
-	const backgroundImageUrl = getMedia(data.backgroundImage?.url);
-	const { title, subtitle, button } = data;
+	const { heading, subHeading, button, backgroundImage } = data;
+	const backgroundImageUrl = getMedia(backgroundImage.url) || "";
 
 	return (
 		<section className="hero-section" style={{ backgroundImage: `url('${backgroundImageUrl}')` }}>
 			<div className="container hero-container">
 				<div className="hero-content">
 					<h1 className="title">
-						<DynamicText segments={title} />
+						<RichText content={heading} underlineClass="" isHeading />
 					</h1>
 
-					<p className="subtitle">
-						<DynamicText segments={subtitle} underlineClass="subtitleUnderline" />
-					</p>
+					<div className="subtitle">
+						<RichText content={subHeading} underlineClass="subtitle-underline" />
+					</div>
 
 					{button && (
 						<Link href={button.url} className={`button-primary button ${button.variant}`}>

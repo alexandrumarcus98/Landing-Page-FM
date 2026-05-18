@@ -6,9 +6,7 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": false
+      "type": "string"
     },
     "url": {
       "type": "string"

@@ -16,7 +16,6 @@ export async function getLandingPageData() {
 				Footer: {
 					populate: {
 						socials: { populate: "*" },
-						copyright: { populate: "*" },
 					},
 				},
 				Hero: { populate: "*" },
@@ -25,7 +24,6 @@ export async function getLandingPageData() {
 				CTA: {
 					populate: {
 						features: { populate: "*" },
-						title: { populate: "*" },
 						backgroundImage: { populate: "*" },
 					},
 				},

@@ -1,45 +1,45 @@
 {
-  "kind": "singleType",
-  "collectionName": "landing_pages",
-  "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "landing-page"
-  },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "Header": {
-      "type": "component",
-      "component": "layout.header",
-      "repeatable": false
-    },
-    "Hero": {
-      "type": "component",
-      "component": "sections.hero-section",
-      "repeatable": false
-    },
-    "Intro": {
-      "type": "component",
-      "component": "sections.intro-section",
-      "repeatable": false
-    },
-    "CTA": {
-      "type": "component",
-      "component": "sections.cta-section",
-      "repeatable": false
-    },
-    "Contact": {
-      "type": "component",
-      "component": "sections.contact-section",
-      "repeatable": false
-    },
-    "Footer": {
-      "type": "component",
-      "component": "layout.footer",
-      "repeatable": false
-    }
-  }
+	"kind": "singleType",
+	"collectionName": "landing_pages",
+	"info": {
+		"singularName": "landing-page",
+		"pluralName": "landing-pages",
+		"displayName": "landing-page"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"pluginOptions": {},
+	"attributes": {
+		"Header": {
+			"type": "component",
+			"component": "layout.header",
+			"repeatable": false
+		},
+		"Hero": {
+			"type": "component",
+			"component": "sections.hero-section",
+			"repeatable": false
+		},
+		"Intro": {
+			"type": "component",
+			"component": "sections.intro-section",
+			"repeatable": false
+		},
+		"CTA": {
+			"type": "component",
+			"component": "sections.cta-section",
+			"repeatable": false
+		},
+		"Contact": {
+			"type": "component",
+			"component": "sections.contact-section",
+			"repeatable": false
+		},
+		"Footer": {
+			"type": "component",
+			"component": "layout.footer",
+			"repeatable": false
+		}
+	}
 }

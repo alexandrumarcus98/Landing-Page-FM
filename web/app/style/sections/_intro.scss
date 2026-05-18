@@ -17,11 +17,6 @@
 		}
 	}
 
-	@include mobile {
-		padding: var(--space-8) 0;
-		margin: var(--space-8) 0;
-	}
-
 	.intro-container {
 		margin-inline: auto;
 		text-align: center;
@@ -32,32 +27,17 @@
 		text-align: center;
 		margin-bottom: var(--space-12);
 		@include heading-text(3rem, 0.98, 700, uppercase);
-
-		@include mobile {
-			@include heading-text(1.5rem, 1, 700, uppercase);
-			margin-bottom: var(--space-8);
-		}
 	}
 
-	.copy {
+	.description {
 		margin: 0 auto var(--space-12);
 		display: grid;
 		gap: var(--space-8);
-
-		@include mobile {
-			gap: var(--space-4);
-			margin: 0 auto var(--space-8);
-			@include mono-text(0.875rem, 1.6, 400, none);
-		}
 
 		p {
 			margin: 0 var(--space-8);
 			text-align: center;
 			@include mono-text(1.25rem, 1.6, 400, none);
-
-			@include mobile {
-				@include mono-text(0.875rem, 1.6, 400, none);
-			}
 		}
 	}
 
@@ -65,29 +45,17 @@
 		margin: 0 auto;
 		text-align: center;
 		@include accent-text(30px, 1.05, 400, uppercase);
-
-		@include mobile {
-			@include accent-text(1.25rem, 1.2, 400, uppercase);
-			margin: 0 auto var(--space-14);
-		}
 	}
 
 	.statement-underline {
 		text-decoration: underline;
 		text-underline-offset: 3px;
-
-		@include mobile {
-			display: inline-block;
-		}
 	}
 
 	.title,
-	.copy,
+	.description,
 	.statement {
 		width: min(100% - 113px, var(--container-feature));
-		@include mobile {
-			width: min(100% - 32px, var(--container-feature));
-		}
 	}
 
 	.divider {
@@ -95,10 +63,73 @@
 		margin: var(--section-divider-y) auto 0;
 		background: var(--color-ink);
 		max-width: 646px;
+	}
 
-		@include mobile {
+	@media (max-width: ($tablet - 1px)) {
+		.title {
+			@include heading-text(2.25rem, 1, 700, uppercase);
+		}
+
+		.description {
+			p {
+				@include mono-text(1.1rem, 1.6, 400, none);
+			}
+		}
+
+		.statement {
+			@include accent-text(1.5rem, 1.2, 400, uppercase);
+		}
+	}
+
+	@include mobile {
+		padding: var(--space-8) 0;
+		margin: var(--space-8) 0;
+
+		.title {
+			@include heading-text(1.5rem, 1, 700, uppercase);
+			margin-bottom: var(--space-8);
+		}
+
+		.description {
+			gap: var(--space-4);
+			margin: 0 auto var(--space-8);
+
+			p {
+				@include mono-text(0.875rem, 1.6, 400, none);
+			}
+		}
+
+		.statement {
+			@include accent-text(1.25rem, 1.2, 400, uppercase);
+			margin: 0 auto var(--space-14);
+		}
+
+		.statement-underline {
+			display: inline-block;
+		}
+
+		.title,
+		.description,
+		.statement {
+			width: min(100% - 32px, var(--container-feature));
+		}
+
+		.divider {
 			margin: var(--space-8) auto 0;
 			max-width: 150px;
+		}
+
+		@media (orientation: landscape) and (max-height: 500px) {
+			padding: var(--space-4) 0;
+			margin: var(--space-4) 0;
+
+			.title {
+				margin-bottom: var(--space-4);
+			}
+
+			.description {
+				margin-bottom: var(--space-4);
+			}
 		}
 	}
 }

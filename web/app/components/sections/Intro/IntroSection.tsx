@@ -1,5 +1,4 @@
-import StrapiBlocks from "@/app/components/shared/Blocks";
-import DynamicText from "@/app/components/shared/DynamicText";
+import RichText from "@/app/components/shared/RichText";
 import { DistressBot } from "@/app/components/ui/DistressDividers";
 
 import type { IntroSection } from "@/app/types/strapi";
@@ -9,7 +8,7 @@ type IntroSectionProps = {
 };
 
 const IntroSection = async ({ data }: IntroSectionProps) => {
-	const { title, copyHtml, statement } = data;
+	const { title, description, statement } = data;
 	return (
 		<section
 			id="intro-section"
@@ -17,20 +16,20 @@ const IntroSection = async ({ data }: IntroSectionProps) => {
 			aria-labelledby="intro-title"
 		>
 			<DistressBot />
+
 			<div className="container intro-container">
 				<h2 id="intro-title" className="title">
-					{title}
+					<RichText content={title} isHeading />
 				</h2>
 
-				{copyHtml.length > 0 && (
-					<div className="copy">
-						<StrapiBlocks content={data.copyHtml} />
-					</div>
-				)}
+				<div className="description">
+					<RichText content={description} underlineClass="description-underline" />
+				</div>
 
-				<p className="statement">
-					<DynamicText segments={statement} underlineClass="statement-underline" />
-				</p>
+				<div className="statement">
+					<RichText content={statement} underlineClass="statement-underline" />
+				</div>
+
 				<div className="divider" aria-hidden="true" />
 			</div>
 		</section>

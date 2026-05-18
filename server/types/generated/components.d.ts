@@ -6,7 +6,7 @@ export interface LayoutFooter extends Struct.ComponentSchema {
 		displayName: "Footer";
 	};
 	attributes: {
-		copyright: Schema.Attribute.Component<"shared.text-segment", true>;
+		copyright: Schema.Attribute.Blocks;
 		socials: Schema.Attribute.Component<"layout.social-link", true>;
 	};
 }
@@ -29,7 +29,7 @@ export interface LayoutNavLink extends Struct.ComponentSchema {
 		displayName: "Nav Link";
 	};
 	attributes: {
-		label: Schema.Attribute.Component<"shared.text-segment", false>;
+		label: Schema.Attribute.String;
 		url: Schema.Attribute.String;
 	};
 }
@@ -52,7 +52,7 @@ export interface SectionsContactSection extends Struct.ComponentSchema {
 	};
 	attributes: {
 		backgroundImage: Schema.Attribute.Media<"images" | "files" | "videos" | "audios">;
-		title: Schema.Attribute.Component<"shared.text-segment", true>;
+		title: Schema.Attribute.Blocks;
 	};
 }
 
@@ -64,7 +64,7 @@ export interface SectionsCtaSection extends Struct.ComponentSchema {
 	attributes: {
 		backgroundImage: Schema.Attribute.Media<"images" | "files" | "videos" | "audios">;
 		features: Schema.Attribute.Component<"shared.cta-feature", true>;
-		title: Schema.Attribute.Component<"shared.text-segment", true>;
+		title: Schema.Attribute.Blocks;
 	};
 }
 
@@ -76,8 +76,8 @@ export interface SectionsHeroSection extends Struct.ComponentSchema {
 	attributes: {
 		backgroundImage: Schema.Attribute.Media<"images" | "files" | "videos" | "audios">;
 		button: Schema.Attribute.Component<"shared.button", false>;
-		subtitle: Schema.Attribute.Component<"shared.text-segment", true>;
-		title: Schema.Attribute.Component<"shared.text-segment", true>;
+		heading: Schema.Attribute.Blocks;
+		subHeading: Schema.Attribute.Blocks;
 	};
 }
 
@@ -87,9 +87,9 @@ export interface SectionsIntroSection extends Struct.ComponentSchema {
 		displayName: "Intro Section";
 	};
 	attributes: {
-		copyHtml: Schema.Attribute.Blocks;
-		statement: Schema.Attribute.Component<"shared.text-segment", true>;
-		title: Schema.Attribute.String;
+		description: Schema.Attribute.Blocks;
+		statement: Schema.Attribute.Blocks;
+		title: Schema.Attribute.Blocks;
 	};
 }
 
@@ -113,22 +113,11 @@ export interface SharedCtaFeature extends Struct.ComponentSchema {
 	attributes: {
 		buttonLabel: Schema.Attribute.String;
 		date: Schema.Attribute.String;
-		description: Schema.Attribute.Text;
+		description: Schema.Attribute.Blocks;
 		href: Schema.Attribute.String;
 		image: Schema.Attribute.Media<"images" | "files" | "videos" | "audios">;
 		imageLeft: Schema.Attribute.Boolean;
 		title: Schema.Attribute.String;
-	};
-}
-
-export interface SharedTextSegment extends Struct.ComponentSchema {
-	collectionName: "components_shared_text_segments";
-	info: {
-		displayName: "Text Segment";
-	};
-	attributes: {
-		text: Schema.Attribute.String;
-		type: Schema.Attribute.Enumeration<["normal", "accent", "underline", "break"]>;
 	};
 }
 
@@ -145,7 +134,6 @@ declare module "@strapi/strapi" {
 			"sections.intro-section": SectionsIntroSection;
 			"shared.button": SharedButton;
 			"shared.cta-feature": SharedCtaFeature;
-			"shared.text-segment": SharedTextSegment;
 		}
 	}
 }

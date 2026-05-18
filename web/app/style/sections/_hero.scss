@@ -5,12 +5,9 @@
 	color: var(--color-white);
 	background-color: #1f1f1f;
 	background-size: cover;
+	background-position: center;
 	background-repeat: no-repeat;
 	border-bottom: 0.125rem solid var(--color-ink);
-
-	@include mobile {
-		min-height: auto;
-	}
 
 	.hero-content {
 		display: flex;
@@ -21,10 +18,6 @@
 		padding: 19.8215rem 0;
 		text-box-edge: cap alphabetic;
 		text-box-trim: both;
-
-		@include mobile {
-			padding: 8.75rem 0 4rem;
-		}
 	}
 
 	.title {
@@ -35,25 +28,57 @@
 		color: var(--color-paper);
 		@include heading-text(6rem, 1, 700, uppercase);
 		margin-bottom: var(--section-divider);
-
-		@include mobile {
-			@include heading-text(3rem, 1, 700, uppercase);
-			margin-bottom: var(--space-10);
-		}
 	}
 
 	.subtitle {
 		letter-spacing: 0;
 		@include accent-text(2.5rem, 1, 400, uppercase);
 		margin-bottom: var(--section-divider);
+	}
 
-		@include mobile {
-			@include accent-text(1.2rem, 1.2, 400, uppercase);
-			margin-bottom: var(--space-10);
+	.subtitle-underline {
+		text-decoration: underline;
+	}
+
+	@media (max-width: ($tablet - 1px)) {
+		.hero-content {
+			padding: 12rem 0;
+		}
+
+		.title {
+			@include heading-text(5rem, 1, 700, uppercase);
+		}
+
+		.subtitle {
+			@include accent-text(2rem, 1, 400, uppercase);
 		}
 	}
 
-	.subtitleUnderline {
-		text-decoration: underline;
+	@include mobile {
+		min-height: auto;
+
+		.hero-content {
+			padding: 8.75rem 0 4rem;
+		}
+
+		.title {
+			@include heading-text(3rem, 1, 700, uppercase);
+			margin-bottom: var(--space-10);
+		}
+
+		.subtitle {
+			@include accent-text(1.2rem, 1.2, 400, uppercase);
+			margin-bottom: var(--space-10);
+		}
+
+		@media (orientation: landscape) and (max-height: 500px) {
+			.hero-content {
+				padding: 4rem 0 2rem;
+			}
+
+			.title {
+				@include heading-text(2.5rem, 1, 700, uppercase);
+			}
+		}
 	}
 }
