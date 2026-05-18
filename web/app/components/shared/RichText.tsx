@@ -11,7 +11,6 @@ type RichTextProps = {
 const RichText = ({ content, underlineClass = "underline", isHeading = false }: RichTextProps) => {
 	if (!content) return null;
 
-	// Handle legacy string content by wrapping it in a valid Blocks structure
 	const normalizedContent =
 		typeof content === "string"
 			? ([{ type: "paragraph", children: [{ type: "text", text: content }] }] as BlocksContent)
