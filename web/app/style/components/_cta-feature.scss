@@ -52,7 +52,6 @@
 		}
 	}
 
-	// Normal Desktop Styles
 	@include desktop {
 		&:not(.image-left) {
 			.media {
@@ -91,7 +90,7 @@
 		.text,
 		&.image-left .text {
 			order: 0;
-			padding: var(--space-6) var(--space-4);
+			padding: 0;
 			width: 100%;
 			text-align: center;
 
@@ -144,15 +143,16 @@
 		.text,
 		&.image-left .text {
 			.title {
-				@include heading-text(1.5rem, 1.2, 700, uppercase);
+				text-align: center;
+				@include heading-text(1.5rem, 1, 700, uppercase);
 			}
 
 			.date {
-				@include mono-text(1rem, 1, 400, uppercase);
+				@include mono-text(1.25rem, 1, 400, uppercase);
 			}
 
 			.description {
-				@include mono-text(0.75rem, 1.4, 400, none);
+				@include mono-text(0.875rem, 1.6, 400, none);
 			}
 
 			.button {
@@ -160,8 +160,11 @@
 			}
 		}
 
-		.image {
-			min-height: 200px;
+		.media {
+			.image {
+				min-height: auto;
+				max-height: 240px;
+			}
 		}
 
 		@media (orientation: landscape) and (max-height: 500px) {

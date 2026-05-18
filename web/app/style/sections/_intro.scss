@@ -2,6 +2,7 @@
 	background: var(--color-paper);
 	color: var(--color-ink);
 	padding: var(--section-space-y) 0 0;
+	overflow: hidden;
 
 	&.has-distress-edges {
 		position: relative;
@@ -9,11 +10,11 @@
 		.distress-divider {
 			position: absolute;
 			left: 0;
-			transform: rotate(90deg);
-			width: 536px;
-			height: 250px;
+			width: 250px;
+			height: 536px;
 			pointer-events: none;
 			z-index: 10;
+			top: 0;
 		}
 	}
 
@@ -84,6 +85,10 @@
 	@include mobile {
 		padding: var(--space-8) 0;
 		margin: var(--space-8) 0;
+
+		.distress-divider {
+			display: none;
+		}
 
 		.title {
 			@include heading-text(1.5rem, 1, 700, uppercase);

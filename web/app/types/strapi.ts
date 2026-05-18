@@ -98,6 +98,8 @@ export interface CtaSection {
 export interface ContactSection {
 	id: number;
 	title: BlocksContent;
+	formTitle: string;
+	formSubtitle: string;
 	backgroundImage: Media;
 }
 

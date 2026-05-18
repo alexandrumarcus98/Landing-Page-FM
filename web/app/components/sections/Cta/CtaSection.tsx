@@ -1,6 +1,8 @@
 import CtaFeature from "@/app/components/shared/CtaFeature";
 import RichText from "@/app/components/shared/RichText";
+import { DistressTop } from "@/app/components/ui/DistressDividers";
 import { getMedia } from "@/app/lib/strapi";
+
 import type { CtaSection } from "@/app/types/strapi";
 
 interface CtaSectionProps {
@@ -28,8 +30,10 @@ const CtaSection = ({ data }: CtaSectionProps) => {
 	};
 
 	return (
-		<section className="cta-section" aria-labelledby="cta" style={sectionStyle}>
+		<section className="cta-section has-distress-edges" aria-labelledby="cta" style={sectionStyle}>
 			<div className="container cta-header">
+				<DistressTop />
+
 				<h2 id="cta" className="title">
 					<RichText content={title} underlineClass="ctaUnderline" />
 				</h2>

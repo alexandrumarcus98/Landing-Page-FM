@@ -17,6 +17,12 @@
     },
     "title": {
       "type": "blocks"
+    },
+    "formTitle": {
+      "type": "string"
+    },
+    "formSubtitle": {
+      "type": "string"
     }
   },
   "config": {}

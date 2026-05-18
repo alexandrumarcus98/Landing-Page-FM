@@ -52,6 +52,8 @@ export interface SectionsContactSection extends Struct.ComponentSchema {
 	};
 	attributes: {
 		backgroundImage: Schema.Attribute.Media<"images" | "files" | "videos" | "audios">;
+		formSubtitle: Schema.Attribute.String;
+		formTitle: Schema.Attribute.String;
 		title: Schema.Attribute.Blocks;
 	};
 }
