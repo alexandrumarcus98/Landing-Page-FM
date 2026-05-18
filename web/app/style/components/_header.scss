@@ -5,7 +5,7 @@
 	padding-top: var(--space-1);
 	overflow: visible;
 
-	.headerContainer {
+	.header-container {
 		position: relative;
 	}
 
@@ -103,7 +103,7 @@
 		right: 0;
 		padding: var(--space-6);
 		background: var(--color-paper);
-		border: 1px solid var(--color-ink);
+		border: 2px solid var(--color-ink);
 		box-shadow: 0 12px 24px rgba(40, 40, 40, 0.12);
 		flex-direction: column;
 		gap: var(--space-4);

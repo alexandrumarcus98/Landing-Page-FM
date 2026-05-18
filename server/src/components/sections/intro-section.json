@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_intro_sections",
+  "info": {
+    "displayName": "Intro Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "copyHtml": {
+      "type": "blocks"
+    },
+    "statement": {
+      "type": "component",
+      "component": "shared.text-segment",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

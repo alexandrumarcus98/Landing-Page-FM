@@ -1,29 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type CtaFeatureProps = {
-	title: string;
-	date?: string;
-	description: string;
-	image: string;
-	imageAlt: string;
-	imageLeft?: boolean;
-	href?: string;
-	buttonLabel?: string;
-};
+import { getMedia } from "@/app/lib/strapi";
+import type { CtaItem } from "@/app/types/strapi"; // Adjust import path
 
-const CtaFeature = ({
-	title,
-	date,
-	description,
-	image,
-	imageAlt,
-	imageLeft = false,
-	href = "#",
-	buttonLabel = "Tell Me More!",
-}: CtaFeatureProps) => {
+interface CtaFeatureProps {
+	data: CtaItem;
+}
+
+const CtaFeature = ({ data }: CtaFeatureProps) => {
+	if (!data) {
+		return null;
+	}
+
+	const {
+		title,
+		date,
+		description,
+		image,
+		imageAlt,
+		imageLeft = false,
+		href = "#",
+		buttonLabel = "Tell Me More!",
+	} = data;
+
+	const imageUrl = getMedia(image?.url);
+	const altText = imageAlt || image?.alternativeText || title;
+
 	return (
-		<article className={`cta-feature ${imageLeft ? "imageLeft" : ""}`}>
+		<article className={`cta-feature ${imageLeft ? "image-left" : ""}`}>
 			<div className="text">
 				<h3 className="title">{title}</h3>
 
@@ -31,13 +36,23 @@ const CtaFeature = ({
 
 				<p className="description">{description}</p>
 
-				<Link href={href} className="buttonPrimary button">
-					{buttonLabel}
-				</Link>
+				{buttonLabel && href && (
+					<Link href={href} className="button-primary button">
+						{buttonLabel}
+					</Link>
+				)}
 			</div>
 
 			<div className="media">
-				<Image src={image} alt={imageAlt} width={812} height={542} className="image" />
+				{imageUrl && (
+					<Image
+						src={imageUrl}
+						alt={altText}
+						width={image?.width || 812}
+						height={image?.height || 542}
+						className="image"
+					/>
+				)}
 			</div>
 		</article>
 	);

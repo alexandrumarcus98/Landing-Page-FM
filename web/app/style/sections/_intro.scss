@@ -1,15 +1,14 @@
 .intro-section {
 	background: var(--color-paper);
 	color: var(--color-ink);
-	padding: var(--space-24) 0 var(--space-20);
-	margin: var(--section-space-y) 0;
+	padding: var(--section-space-y) 0 0;
 
 	@include mobile {
 		padding: var(--space-8) 0;
 		margin: var(--space-8) 0;
 	}
 
-	.introContainer {
+	.intro-container {
 		margin-inline: auto;
 		text-align: center;
 	}
@@ -17,6 +16,7 @@
 	.title {
 		margin: 0 auto;
 		text-align: center;
+		margin-bottom: var(--space-12);
 		@include heading-text(3rem, 0.98, 700, uppercase);
 
 		@include mobile {
@@ -25,21 +25,10 @@
 		}
 	}
 
-	.lead {
-		margin: var(--space-8) auto 0;
-		text-align: center;
-		@include mono-text(1.25rem, 1.6, 400, none);
-
-		@include mobile {
-			margin: 0 auto var(--space-8);
-			@include mono-text(0.875rem, 1.6, 400, none);
-		}
-	}
-
 	.copy {
-		margin: var(--space-8) auto 0;
+		margin: 0 auto var(--space-12);
 		display: grid;
-		gap: var(--space-6);
+		gap: var(--space-8);
 
 		@include mobile {
 			gap: var(--space-4);
@@ -48,7 +37,7 @@
 		}
 
 		p {
-			margin: 0;
+			margin: 0 var(--space-8);
 			text-align: center;
 			@include mono-text(1.25rem, 1.6, 400, none);
 
@@ -59,7 +48,7 @@
 	}
 
 	.statement {
-		margin: var(--space-12) auto 0;
+		margin: 0 auto;
 		text-align: center;
 		@include accent-text(30px, 1.05, 400, uppercase);
 
@@ -69,12 +58,16 @@
 		}
 	}
 
-	.statementUnderline {
+	.statement-underline {
 		text-decoration: underline;
 		text-underline-offset: 3px;
+
+		@include mobile {
+			display: inline-block;
+		}
 	}
 
-	.lead,
+	.title,
 	.copy,
 	.statement {
 		width: min(100% - 113px, var(--container-feature));

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_nav_links",
+  "info": {
+    "displayName": "Nav Link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "component",
+      "component": "shared.text-segment",
+      "repeatable": false
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

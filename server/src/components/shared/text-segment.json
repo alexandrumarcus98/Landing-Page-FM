@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_text_segments",
+  "info": {
+    "displayName": "Text Segment"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "accent",
+        "underline",
+        "break"
+      ]
+    }
+  },
+  "config": {}
+}
