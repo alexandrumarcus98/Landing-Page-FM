@@ -11,24 +11,30 @@
 		flex-direction: column;
 		justify-content: center;
 		background: transparent;
-		padding: var(--space-12) var(--space-16);
-		padding-left: max(140px, calc(var(--container-offset) + 140px));
+		padding: var(--space-6) var(--space-8) var(--space-6) 0;
+		margin-right: var(--section-space-y);
 
 		.title {
 			margin: 0;
 			text-align: left;
-			margin-bottom: var(--section-divider);
+			margin: 0 0 var(--section-divider) 0;
+			white-space: pre-line;
 			@include heading-text(3rem, 1, 700, uppercase);
 		}
 
 		.date {
 			@include mono-text(2rem, 1, 400, uppercase);
-			margin-bottom: var(--section-divider);
+			margin: 0 0 var(--section-divider) 0;
 		}
 
 		.description {
 			@include mono-text(1.25rem, 1.6, 400, none);
-			margin-bottom: var(--section-divider);
+			margin: 0 0 var(--section-divider) 0;
+			padding-right: var(--space-8);
+
+			p {
+				margin: 0;
+			}
 		}
 
 		.button {
@@ -65,8 +71,10 @@
 
 			.text {
 				order: 2;
-				padding-left: 142px;
+				padding: var(--space-6) 0 var(--space-6) var(--space-8);
 				padding-right: 0;
+				margin-right: 0;
+				margin-left: 145px;
 			}
 
 			.media {

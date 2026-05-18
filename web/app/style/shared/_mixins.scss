@@ -60,7 +60,9 @@ $tablet: 1200px;
 }
 
 @mixin button-base($width: 203px, $height: 52px, $padding-y: 20px, $padding-x: 40px) {
-	@apply inline-flex items-center justify-center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	width: $width;
 	height: $height;
 	padding: $padding-y $padding-x;

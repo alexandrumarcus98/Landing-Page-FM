@@ -59,6 +59,9 @@
 
 		.copyright {
 			margin: 0 var(--space-6);
+			p {
+				display: inline;
+			}
 		}
 	}
 
@@ -67,6 +70,14 @@
 
 		.distress-divider {
 			display: none;
+		}
+
+		.footer-container {
+			.copyright {
+				p {
+					display: block;
+				}
+			}
 		}
 	}
 }

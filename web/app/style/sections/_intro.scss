@@ -46,6 +46,10 @@
 		margin: 0 auto;
 		text-align: center;
 		@include accent-text(30px, 1.05, 400, uppercase);
+
+		p {
+			margin: 0;
+		}
 	}
 
 	.statement-underline {

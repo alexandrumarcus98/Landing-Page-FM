@@ -30,7 +30,7 @@ const CtaFeature = ({ data }: CtaFeatureProps) => {
 	const altText = imageAlt || image?.alternativeText || title;
 
 	return (
-		<article className={`cta-feature ${imageLeft ? "image-left" : ""}`}>
+		<article className={`cta-feature${imageLeft ? " image-left" : ""}`}>
 			<div className="text">
 				<h3 className="title">{title}</h3>
 

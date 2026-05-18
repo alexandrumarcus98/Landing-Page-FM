@@ -13,7 +13,7 @@ export const Home = async () => {
 	const strapiData: LandingPagePayload = await getLandingPageData();
 
 	if (!strapiData) {
-		return <div>Loading or No data found. Make sure Strapi is running!</div>;
+		throw new Error("Failed to load landing page data. Check if Strapi is running.");
 	}
 
 	return (
