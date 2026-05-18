@@ -15,16 +15,13 @@ export const Home = async () => {
 		return <div>Loading or No data found. Make sure Strapi is running!</div>;
 	}
 
-	console.log(strapiData.Footer);
-
 	return (
 		<>
 			{strapiData.Header && <Header data={strapiData.Header} />}
+
 			<main>
 				{strapiData.Hero && <HeroSection data={strapiData.Hero} />}
-
 				{strapiData.Intro && <IntroSection data={strapiData.Intro} />}
-
 				{strapiData.CTA && <CtaSection data={strapiData.CTA} />}
 			</main>
 
