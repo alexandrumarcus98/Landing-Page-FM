@@ -12,11 +12,6 @@
 		min-height: auto;
 	}
 
-	.overlay {
-		@include absolute-fill;
-		background: rgba(18, 18, 18, 0.46);
-	}
-
 	.hero-content {
 		display: flex;
 		flex-direction: column;
@@ -60,17 +55,5 @@
 
 	.subtitleUnderline {
 		text-decoration: underline;
-	}
-
-	.heroButton {
-		letter-spacing: 0;
-		color: var(--color-paper);
-
-		@include mobile {
-			width: auto;
-			max-width: none;
-			padding-left: var(--space-8);
-			padding-right: var(--space-8);
-		}
 	}
 }
