@@ -1,4 +1,4 @@
-import DynamicText from "@/app/components/shared/DynamicText";
+import RichText from "@/app/components/shared/RichText";
 
 import type { ContactSection } from "@/app/types/strapi";
 
@@ -19,7 +19,7 @@ const ContactSection = ({ data }: ContactSectionProps) => {
 				<div className="divider" aria-hidden="true" />
 
 				<h2 id="contact" className="title">
-					<DynamicText segments={title} />
+					<RichText content={title} />
 				</h2>
 
 				<div className="form-wrapper">

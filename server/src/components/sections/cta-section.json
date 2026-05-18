@@ -6,9 +6,7 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": true
+      "type": "blocks"
     },
     "features": {
       "type": "component",

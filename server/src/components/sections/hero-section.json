@@ -5,15 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": true
+    "heading": {
+      "type": "blocks"
     },
-    "subtitle": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": true
+    "subHeading": {
+      "type": "blocks"
     },
     "button": {
       "type": "component",

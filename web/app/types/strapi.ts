@@ -1,21 +1,15 @@
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
-export type TextSegment = {
-	id: number;
-	text: string;
-	type: "normal" | "accent" | "underline" | "break";
-};
-
-export type Button = {
+export interface Button {
 	id: number;
 	label: string;
 	url: string;
 	variant: "primary" | "secondary" | "outline";
-};
+}
 
 export interface NavLink {
 	id: number;
-	label: TextSegment;
+	label: string;
 	url: string;
 }
 
@@ -63,30 +57,30 @@ export interface Header {
 
 export interface Footer {
 	id: number;
-	copyright: TextSegment[];
+	copyright: BlocksContent;
 	socials: SocialLink[];
 }
 
-export type HeroSection = {
+export interface HeroSection {
 	id: number;
-	title: TextSegment[];
-	subtitle: TextSegment[];
+	heading: BlocksContent;
+	subHeading: BlocksContent;
 	button: Button | null;
 	backgroundImage: Media;
-};
+}
 
-export type IntroSection = {
+export interface IntroSection {
 	id: number;
-	title: string;
-	copyHtml: BlocksContent;
-	statement: TextSegment[];
-};
+	title: BlocksContent;
+	description: BlocksContent;
+	statement: BlocksContent;
+}
 
 export interface CtaItem {
 	id: number;
 	title: string;
 	date?: string | null;
-	description: string;
+	description: BlocksContent;
 	image: Media;
 	imageAlt?: string | null;
 	imageLeft?: boolean;
@@ -96,18 +90,18 @@ export interface CtaItem {
 
 export interface CtaSection {
 	id: number;
-	title: TextSegment[];
+	title: BlocksContent;
 	features: CtaItem[];
 	backgroundImage: Media;
 }
 
 export interface ContactSection {
 	id: number;
-	title: TextSegment[];
+	title: BlocksContent;
 	backgroundImage: Media;
 }
 
-export type LandingPagePayload = {
+export interface LandingPagePayload {
 	id: number;
 	documentId: string;
 	createdAt: string;
@@ -119,4 +113,4 @@ export type LandingPagePayload = {
 	Intro: IntroSection | null;
 	CTA: CtaSection | null;
 	Contact: ContactSection | null;
-};
+}

@@ -117,10 +117,8 @@
 	&.isOpen .mobile-nav {
 		display: flex;
 	}
-}
 
-@include mobile {
-	.header {
+	@media (max-width: ($tablet - 1px)) {
 		.siteNav {
 			grid-template-columns: auto 1fr auto;
 			column-gap: 0;
@@ -137,6 +135,16 @@
 
 		.menuButton {
 			display: inline-flex;
+		}
+
+		@media (orientation: landscape) and (max-height: 500px) {
+			.mobile-nav {
+				max-height: 80vh;
+				overflow-y: auto;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--space-4);
+			}
 		}
 	}
 }

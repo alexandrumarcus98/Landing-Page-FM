@@ -1,5 +1,6 @@
-import Footer from "@/app/components/layout/Footer/Footer";
 import Header from "@/app/components/layout/Header/Header";
+
+import Footer from "@/app/components/layout/Footer/Footer";
 import ContactSection from "@/app/components/sections/Contact/ContactSection";
 import CtaSection from "@/app/components/sections/Cta/CtaSection";
 import HeroSection from "@/app/components/sections/Hero/HeroSection";

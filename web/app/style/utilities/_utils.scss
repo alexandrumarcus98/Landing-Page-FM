@@ -1,0 +1,13 @@
+.desktop-only {
+	@include mobile {
+		display: none !important;
+	}
+}
+
+.mobile-only {
+	display: none !important;
+
+	@include mobile {
+		display: inline !important;
+	}
+}

@@ -1,5 +1,5 @@
 import CtaFeature from "@/app/components/shared/CtaFeature";
-import DynamicText from "@/app/components/shared/DynamicText";
+import RichText from "@/app/components/shared/RichText";
 import { getMedia } from "@/app/lib/strapi";
 import type { CtaSection } from "@/app/types/strapi";
 
@@ -31,7 +31,7 @@ const CtaSection = ({ data }: CtaSectionProps) => {
 		<section className="cta-section" aria-labelledby="cta" style={sectionStyle}>
 			<div className="container cta-header">
 				<h2 id="cta" className="title">
-					<DynamicText segments={title} underlineClass="ctaUnderline" />
+					<RichText content={title} underlineClass="ctaUnderline" />
 				</h2>
 			</div>
 

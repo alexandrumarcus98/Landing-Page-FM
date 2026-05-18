@@ -35,10 +35,10 @@ const Header = ({ data }: HeaderProps) => {
 						{leftLinks.map((item) => (
 							<Link
 								key={item?.id}
-								href={formatStrapiUrl(item.label.text, item.url)}
+								href={formatStrapiUrl(item.label, item.url)}
 								className="link"
 							>
-								{item?.label.text}
+								{item?.label}
 							</Link>
 						))}
 					</div>
@@ -51,10 +51,10 @@ const Header = ({ data }: HeaderProps) => {
 						{rightLinks.map((item) => (
 							<Link
 								key={item?.id}
-								href={formatStrapiUrl(item.label.text, item.url)}
+								href={formatStrapiUrl(item.label, item.url)}
 								className="link"
 							>
-								{item?.label.text}
+								{item?.label}
 							</Link>
 						))}
 					</div>
@@ -79,11 +79,11 @@ const Header = ({ data }: HeaderProps) => {
 					{mobileLinks.map((item) => (
 						<Link
 							key={item?.id}
-							href={formatStrapiUrl(item.label.text, item.url)}
+							href={formatStrapiUrl(item.label, item.url)}
 							className="mobileLink"
 							onClick={closeMenu}
 						>
-							{item?.label.text}
+							{item?.label}
 						</Link>
 					))}
 				</div>

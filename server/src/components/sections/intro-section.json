@@ -6,15 +6,13 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "blocks"
     },
-    "copyHtml": {
+    "description": {
       "type": "blocks"
     },
     "statement": {
-      "type": "component",
-      "component": "shared.text-segment",
-      "repeatable": true
+      "type": "blocks"
     }
   },
   "config": {}

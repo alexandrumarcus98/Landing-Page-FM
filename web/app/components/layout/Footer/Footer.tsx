@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import DynamicText from "@/app/components/shared/DynamicText";
+import RichText from "@/app/components/shared/RichText";
 import { getMedia } from "@/app/lib/strapi";
 
 import type { ContactSection, Footer } from "@/app/types/strapi";
@@ -49,9 +49,9 @@ const Footer = ({ children, contactData, data }: FooterProps) => {
 					</div>
 				)}
 
-				<p>
-					<DynamicText segments={copyright} />
-				</p>
+				<div className="copyright">
+					<RichText content={copyright} />
+				</div>
 			</div>
 		</footer>
 	);
