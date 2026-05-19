@@ -1,5 +1,6 @@
 import qs from "qs";
 
+export const dynamic = "force-dynamic";
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337";
 
 export async function getLandingPageData() {
@@ -38,11 +39,10 @@ export async function getLandingPageData() {
 
 	try {
 		const response = await fetch(url, {
-			cache: "no-store",
+			next: { revalidate: 60 },
 		});
 
 		if (!response.ok) {
-			console.error(`Strapi Fetch Error: ${response.status} ${response.statusText}`);
 			return null;
 		}
 
