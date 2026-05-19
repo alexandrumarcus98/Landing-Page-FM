@@ -1,7 +1,6 @@
 .hero-section {
 	position: relative;
 	overflow: hidden;
-	min-height: 987px;
 	color: var(--color-white);
 	background-color: #1f1f1f;
 	background-size: cover;
@@ -15,7 +14,7 @@
 		align-items: center;
 		text-align: center;
 		justify-content: center;
-		padding: 19.8215rem 0;
+		padding: 19.8125rem 0 14.1875rem;
 		text-box-edge: cap alphabetic;
 		text-box-trim: both;
 	}
@@ -67,8 +66,12 @@
 		}
 
 		.subtitle {
-			@include accent-text(1.2rem, 1.2, 400, uppercase);
+			@include accent-text(2rem, 1, 400, uppercase);
 			margin-bottom: var(--space-10);
+		}
+
+		.button-primary {
+			max-width: 187px;
 		}
 
 		@media (orientation: landscape) and (max-height: 500px) {

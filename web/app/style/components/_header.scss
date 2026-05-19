@@ -9,7 +9,7 @@
 		position: relative;
 	}
 
-	.siteNav {
+	.site-nav {
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
 		align-items: center;
@@ -22,15 +22,15 @@
 		min-width: 0;
 	}
 
-	.desktopNav {
+	.desktop-nav {
 		display: flex;
 	}
 
-	.navLeft {
+	.nav-left {
 		justify-content: flex-start;
 	}
 
-	.navRight {
+	.nav-right {
 		justify-content: flex-end;
 	}
 
@@ -65,7 +65,7 @@
 		}
 	}
 
-	.menuButton {
+	.menu-button {
 		display: none;
 		align-items: center;
 		gap: var(--space-3);
@@ -77,7 +77,7 @@
 		@include mono-text(1rem, 1, 400, uppercase);
 	}
 
-	.menuIcon {
+	.menu-icon {
 		display: inline-flex;
 		flex-direction: column;
 		gap: 4px;
@@ -109,23 +109,23 @@
 		gap: var(--space-4);
 	}
 
-	.mobileLink {
+	.mobile-link {
 		color: var(--color-ink);
 		@include mono-text(1rem, 1.2, 400, uppercase);
 	}
 
-	&.isOpen .mobile-nav {
+	&.is-open .mobile-nav {
 		display: flex;
 	}
 
 	@media (max-width: ($tablet - 1px)) {
-		.siteNav {
+		.site-nav {
 			grid-template-columns: auto 1fr auto;
 			column-gap: 0;
 			padding: 0 var(--space-0);
 		}
 
-		.desktopNav {
+		.desktop-nav {
 			display: none;
 		}
 
@@ -133,7 +133,7 @@
 			justify-self: center;
 		}
 
-		.menuButton {
+		.menu-button {
 			display: inline-flex;
 		}
 
@@ -141,7 +141,7 @@
 			.mobile-nav {
 				max-height: 80vh;
 				overflow-y: auto;
-				display: grid;
+				display: none;
 				grid-template-columns: 1fr 1fr;
 				gap: var(--space-4);
 			}

@@ -35,7 +35,7 @@ const CtaSection = ({ data }: CtaSectionProps) => {
 				<DistressTop />
 
 				<h2 id="cta" className="title">
-					<RichText content={title} underlineClass="ctaUnderline" />
+					<RichText content={title} underlineClass="cta-underline" />
 				</h2>
 			</div>
 

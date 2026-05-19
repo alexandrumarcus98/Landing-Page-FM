@@ -16,8 +16,11 @@
 		margin-bottom: var(--section-space-y);
 		width: min(100% - 32px, var(--container-feature));
 
-		.text-accent {
-			color: var(--color-accent);
+		p {
+			margin: 0;
+			.text-accent {
+				color: var(--color-accent);
+			}
 		}
 	}
 
