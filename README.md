@@ -59,7 +59,7 @@ This project is a monorepo containing a Strapi v5 backend and a Next.js frontend
    ```
 
 3. Configure environment variables:
-   Create a `.env.local` file with the following content:
+   Create a `.env` file in the `web` directory based on `.env.example`:
 
    ```env
    NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1337
@@ -83,9 +83,10 @@ This project is a monorepo containing a Strapi v5 backend and a Next.js frontend
 - `TRANSFER_TOKEN_SALT`: Salt for transfer tokens.
 - `JWT_SECRET`: Secret for JWT.
 
-### Frontend (.env.local)
+### Frontend (web/.env)
 
-- `NEXT_PUBLIC_STRAPI_API_URL`: The URL of the Strapi backend (default: http://localhost:1337).
+- `NEXT_PUBLIC_STRAPI_API_URL`: The URL of the Strapi backend (default: `http://localhost:1337`).
+- `STRAPI_IMAGE_HOSTNAME`: The hostname for Strapi images (used for `next/image` HTTPS patterns). Leave undefined for local development.
 
 ## Development Guidelines
 

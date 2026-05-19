@@ -28,16 +28,12 @@ const Header = ({ data }: HeaderProps) => {
 	const closeMenu = () => setIsMenuOpen(false);
 
 	return (
-		<header className={`header ${isMenuOpen ? "isOpen" : ""}`}>
+		<header className={`header ${isMenuOpen ? "is-open" : ""}`}>
 			<div className="container header-container">
-				<nav className="siteNav" aria-label="Primary navigation">
-					<div className="nav navLeft desktopNav">
+				<nav className="site-nav" aria-label="Primary navigation">
+					<div className="nav nav-left desktop-nav">
 						{leftLinks.map((item) => (
-							<Link
-								key={item?.id}
-								href={formatStrapiUrl(item.label, item.url)}
-								className="link"
-							>
+							<Link key={item?.id} href={formatStrapiUrl(item.label, item.url)} className="link">
 								{item?.label}
 							</Link>
 						))}
@@ -47,13 +43,9 @@ const Header = ({ data }: HeaderProps) => {
 						<Image src={logoUrl} alt={logoAlt} width={145} height={100} />
 					</Link>
 
-					<div className="nav navRight desktopNav">
+					<div className="nav nav-right desktop-nav">
 						{rightLinks.map((item) => (
-							<Link
-								key={item?.id}
-								href={formatStrapiUrl(item.label, item.url)}
-								className="link"
-							>
+							<Link key={item?.id} href={formatStrapiUrl(item.label, item.url)} className="link">
 								{item?.label}
 							</Link>
 						))}
@@ -61,13 +53,13 @@ const Header = ({ data }: HeaderProps) => {
 
 					<button
 						type="button"
-						className="menuButton"
+						className="menu-button"
 						aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 						aria-expanded={isMenuOpen}
 						aria-controls="mobile-navigation"
 						onClick={() => setIsMenuOpen((current) => !current)}
 					>
-						<span className="menuIcon" aria-hidden="true">
+						<span className="menu-icon" aria-hidden="true">
 							<span />
 							<span />
 							<span />
@@ -80,7 +72,7 @@ const Header = ({ data }: HeaderProps) => {
 						<Link
 							key={item?.id}
 							href={formatStrapiUrl(item.label, item.url)}
-							className="mobileLink"
+							className="mobile-link"
 							onClick={closeMenu}
 						>
 							{item?.label}

@@ -6,6 +6,10 @@
 	margin-bottom: var(--section-space-y);
 	margin-left: max(140px, calc(var(--container-offset) + 140px));
 
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
 	.text {
 		display: flex;
 		flex-direction: column;
