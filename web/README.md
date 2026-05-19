@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, create a `.env` file in the root directory based on `.env.example`. For local development, you typically only need `NEXT_PUBLIC_STRAPI_API_URL`.
+
+```bash
+NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1337
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -13,6 +19,13 @@ pnpm dev
 # or
 bun dev
 ```
+
+## Environment Variables
+
+| Variable | Description | Default / Local Dev |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_STRAPI_API_URL` | The base URL for the Strapi API. | `http://localhost:1337` |
+| `STRAPI_IMAGE_HOSTNAME` | The hostname for Strapi images (used for `next/image` HTTPS patterns). | *Undefined* (Defaults to localhost HTTP) |
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
