@@ -6,8 +6,14 @@ const nextConfig: NextConfig = {
 		silenceDeprecations: ["import"],
 	},
 	images: {
-		domains: ["localhost", "127.0.0.1"],
-		dangerouslyAllowLocalIP: true,
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: process.env.STRAPI_IMAGE_HOSTNAME || "",
+				port: "",
+				pathname: "/**",
+			},
+		],
 	},
 };
 
